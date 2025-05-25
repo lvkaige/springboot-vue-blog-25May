@@ -31,5 +31,19 @@ public class Post {
     public void setUserId(Long userId) {
     }
 
+    public Integer getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(int i) {
+    }
+
+    public void setViewCount(int i) {
+    }
+
+    public int getViewCount() {
+        return viewCount;
+    }
+
     // 省略getter/setter
 }

@@ -25,6 +25,13 @@ public class Comment {
     @Column(name = "like_count", nullable = false)
     private Integer likeCount = 0; // 点赞数，初始0
 
+    public Integer getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(int i) {
+    }
+
     // 省略getter/setter
 }
 

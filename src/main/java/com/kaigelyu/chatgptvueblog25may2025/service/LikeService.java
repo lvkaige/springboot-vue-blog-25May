@@ -1,5 +1,19 @@
 package com.kaigelyu.chatgptvueblog25may2025.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.kaigelyu.chatgptvueblog25may2025.entity.PostLike;
+import com.kaigelyu.chatgptvueblog25may2025.entity.CommentLike;
+import com.kaigelyu.chatgptvueblog25may2025.entity.Post;
+import com.kaigelyu.chatgptvueblog25may2025.entity.Comment;
+
+import com.kaigelyu.chatgptvueblog25may2025.respository.PostLikeRepository;
+import com.kaigelyu.chatgptvueblog25may2025.respository.CommentLikeRepository;
+import com.kaigelyu.chatgptvueblog25may2025.respository.PostRepository;
+import com.kaigelyu.chatgptvueblog25may2025.respository.CommentRepository;
+
+import java.util.List;
+
 @Service
 public class LikeService {
     @Autowired

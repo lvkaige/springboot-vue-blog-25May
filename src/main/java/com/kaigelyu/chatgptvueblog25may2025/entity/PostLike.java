@@ -11,6 +11,13 @@ public class PostLike {
     private Long id;
     private Long userId;    // 点赞用户ID
     private Long postId;    // 点赞帖子ID
+
+    public PostLike(Long id, Long userId, Long postId) {
+        this.id = id;
+        this.userId = userId;
+        this.postId = postId;
+    }
+
     // 省略getter/setter
 }
 
