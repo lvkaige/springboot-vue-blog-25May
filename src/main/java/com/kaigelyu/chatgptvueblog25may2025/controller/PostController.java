@@ -29,24 +29,27 @@ public class PostController {
 
     // 发布新帖
     @PostMapping("/")
-    public Post createPost(@RequestBody Post post, @RequestHeader("Authorization") String auth) {
-        // 从Token获取当前用户ID（简化示例，不做实际解析）
-        Long userId =  /* parse user id from token */;
+    public Post createPost(@RequestBody Post post, @RequestParam Long userId) {
         return postService.createPost(post, userId);
     }
 
     // 删除帖子（普通用户只能删自己帖子，管理员可删任意）
     @DeleteMapping("/{id}")
-    public Result deletePost(@PathVariable Long id, @RequestHeader("Authorization") String auth) {
-        // 从Token获取当前用户信息
-        Long userId =  /* parse user id from token */;
-        boolean isAdmin =  /* parse admin flag */;
+    public Result deletePost(@PathVariable Long id,
+                             @RequestParam Long userId,
+                             @RequestParam(defaultValue = "false") boolean isAdmin) {
         Post post = postService.getPostById(id);
+        if (post == null) {
+            return Result.error("帖子不存在");
+        }
+
         if (!isAdmin && !post.getUserId().equals(userId)) {
             return Result.error("无权限删除该帖子");
         }
+
         postService.deletePost(id);
         return Result.success("删除成功");
     }
+
 }
 

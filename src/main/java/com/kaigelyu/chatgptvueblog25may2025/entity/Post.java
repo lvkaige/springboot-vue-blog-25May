@@ -45,5 +45,9 @@ public class Post {
         return viewCount;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
     // 省略getter/setter
 }

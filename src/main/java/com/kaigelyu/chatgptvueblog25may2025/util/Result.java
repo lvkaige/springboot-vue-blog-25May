@@ -1,12 +1,17 @@
 package com.kaigelyu.chatgptvueblog25may2025.util;
 
-import java.util.HashMap;
-import java.util.Map;
+//  统一的 API 响应封装类，它在整个项目中负责标准化接口返回结构
 
 public class Result {
     private boolean success;
     private String message;
     private Object data;
+
+    public Result(boolean success, String message, Object data) {
+        this.success = success;
+        this.message = message;
+        this.data = data;
+    }
 
     public static Result success(String msg) {
         return new Result(true, msg, null);
@@ -20,6 +25,27 @@ public class Result {
         return new Result(false, msg, null);
     }
 
-    // 构造函数、getter/setter略
-}
+    public boolean isSuccess() {
+        return success;
+    }
 
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+}

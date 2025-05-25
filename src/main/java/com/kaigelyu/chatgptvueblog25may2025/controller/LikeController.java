@@ -15,16 +15,14 @@ public class LikeController {
 
     // 给帖子点赞
     @PostMapping("/post/{postId}")
-    public Result likePost(@PathVariable Long postId, @RequestHeader("Authorization") String auth) {
-        Long userId = /* parse user id from token */;
+    public Result likePost(@PathVariable Long postId, @RequestParam Long userId) {
         likeService.likePost(userId, postId);
         return Result.success("已点赞帖子");
     }
 
     // 给评论点赞
     @PostMapping("/comment/{commentId}")
-    public Result likeComment(@PathVariable Long commentId, @RequestHeader("Authorization") String auth) {
-        Long userId = /* parse user id from token */;
+    public Result likeComment(@PathVariable Long commentId, @RequestParam Long userId) {
         likeService.likeComment(userId, commentId);
         return Result.success("已点赞评论");
     }

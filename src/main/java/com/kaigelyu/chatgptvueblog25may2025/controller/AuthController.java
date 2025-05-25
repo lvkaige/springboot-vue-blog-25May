@@ -2,7 +2,6 @@ package com.kaigelyu.chatgptvueblog25may2025.controller;
 
 import com.kaigelyu.chatgptvueblog25may2025.entity.User;
 import com.kaigelyu.chatgptvueblog25may2025.service.UserService;
-import com.kaigelyu.chatgptvueblog25may2025.util.JwtUtil;
 import com.kaigelyu.chatgptvueblog25may2025.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,8 +17,6 @@ import java.util.Map;
 public class AuthController {
     @Autowired
     private UserService userService;
-    @Autowired
-    private JwtUtil jwtUtil;
 
     // 用户注册
     @PostMapping("/register")
@@ -35,7 +32,6 @@ public class AuthController {
         if (user == null || !user.getPassword().equals(creds.get("password"))) {
             return Result.error("用户名或密码错误");
         }
-        String token = jwtUtil.generateToken(user);
-        return Result.success(Map.of("token", token));
+        return Result.success("登录成功");
     }
 }

@@ -16,9 +16,7 @@ public class CommentController {
 
     // 添加评论或回复（parentId可选）
     @PostMapping("/")
-    public Comment addComment(@RequestBody Comment comment, @RequestHeader("Authorization") String auth) {
-        // 从Token获取当前用户ID
-        Long userId = /* parse user id from token */;
+    public Comment addComment(@RequestBody Comment comment, @RequestParam Long userId) {
         comment.setUserId(userId);
         return commentService.addComment(comment);
     }
