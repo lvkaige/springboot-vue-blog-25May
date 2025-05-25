@@ -1,0 +1,16 @@
+package com.kaigelyu.chatgptvueblog25may2025.entity;
+
+import jakarta.persistence.*;
+
+// PostLike.java
+@Entity
+@Table(name = "post_like")
+public class PostLike {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Long userId;    // 点赞用户ID
+    private Long postId;    // 点赞帖子ID
+    // 省略getter/setter
+}
+
