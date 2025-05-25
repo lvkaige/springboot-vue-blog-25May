@@ -12,7 +12,7 @@ public class UserService {
 
     // 注册新用户
     public User register(User user) {
-        // 简单示例，未做重复检查
+        // userRepo是指调用数据访问层
         return userRepo.save(user);
     }
 

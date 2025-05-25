@@ -12,11 +12,7 @@ public class CommentLike {
     private Long userId;    // 点赞用户ID
     private Long commentId; // 点赞评论ID
 
-    public CommentLike(Object o, Long userId, Long commentId) {
-    }
-
     public CommentLike() {
 
     }
-    // 省略getter/setter
 }

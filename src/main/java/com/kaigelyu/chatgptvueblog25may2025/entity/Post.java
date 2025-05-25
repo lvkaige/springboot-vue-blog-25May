@@ -1,6 +1,10 @@
 package com.kaigelyu.chatgptvueblog25may2025.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 // Post.java
 @Entity
@@ -16,19 +20,28 @@ public class Post {
     @Column(nullable = false, columnDefinition="TEXT")
     private String content;     // 帖子内容
 
-    @Column(name = "user_id", nullable = false)
+    @Column(nullable = false)
     private Long userId;        // 发布用户ID
 
-    @Column(name = "view_count", nullable = false)
+    @Column(nullable = false)
     private Integer viewCount = 0;   // 浏览量，初始0
 
-    @Column(name = "like_count", nullable = false)
+    @Column(nullable = false)
     private Integer likeCount = 0;   // 点赞数，初始0
 
-    @Column(name = "comment_count", nullable = false)
+    @Column(nullable = false)
     private Integer commentCount = 0; // 评论数，初始0
 
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createdAt; // 创建时间
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt; // 更新时间
+
+
     public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public Integer getLikeCount() {
@@ -36,9 +49,11 @@ public class Post {
     }
 
     public void setLikeCount(int i) {
+        this.likeCount = i;
     }
 
     public void setViewCount(int i) {
+        this.viewCount = i;
     }
 
     public int getViewCount() {
@@ -48,6 +63,4 @@ public class Post {
     public Long getUserId() {
         return userId;
     }
-
-    // 省略getter/setter
 }

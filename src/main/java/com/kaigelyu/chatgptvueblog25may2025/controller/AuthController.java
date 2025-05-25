@@ -25,7 +25,7 @@ public class AuthController {
         return Result.success("注册成功");
     }
 
-    // 用户登录，成功返回Token
+    // 用户登录
     @PostMapping("/login")
     public Result login(@RequestBody Map<String, String> creds) {
         User user = userService.findByUsername(creds.get("username"));

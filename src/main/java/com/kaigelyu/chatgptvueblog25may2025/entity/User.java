@@ -2,7 +2,7 @@ package com.kaigelyu.chatgptvueblog25may2025.entity;
 
 import jakarta.persistence.*;
 
-// User.java
+// 用户的数据表
 @Entity
 @Table(name = "user")
 public class User {
