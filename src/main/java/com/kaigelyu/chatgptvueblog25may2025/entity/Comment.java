@@ -32,6 +32,9 @@ public class Comment {
     public void setLikeCount(int i) {
     }
 
+    public void setUserId(Long userId) {
+    }
+
     // 省略getter/setter
 }
 

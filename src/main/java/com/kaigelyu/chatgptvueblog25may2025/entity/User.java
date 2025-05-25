@@ -19,6 +19,10 @@ public class User {
     @Column(nullable = false)
     private Boolean admin = false; // 是否管理员
 
+    public String getPassword() {
+        return password;
+    }
+
     // 省略getter/setter
 }
 
