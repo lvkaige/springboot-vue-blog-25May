@@ -1,4 +1,7 @@
 package com.kaigelyu.chatgptvueblog25may2025.service;
+// controller里面函数的补充，
+// 这个文件是不必要的（在controller里就可以完成）
+// 但是，service文件夹内的文件是操作数据库模型的函数，和controller划分了界限，一个主要处理逻辑、一个主要处理数据库
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +15,7 @@ public class UserService {
 
     // 注册新用户
     public User register(User user) {
+//        System.out.println("注册用户信息：" + user);
         // userRepo是指调用数据访问层
         return userRepo.save(user);
     }

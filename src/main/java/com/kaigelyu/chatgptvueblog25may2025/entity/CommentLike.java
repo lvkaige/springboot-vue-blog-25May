@@ -15,4 +15,7 @@ public class CommentLike {
     public CommentLike() {
 
     }
+
+    public CommentLike(Object o, Long userId, Long commentId) {
+    }
 }
